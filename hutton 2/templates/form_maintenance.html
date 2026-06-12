@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Maintenance Request — Hutton{% endblock %}
+{% block content %}
+<h1>Maintenance Request</h1>
+<form method="POST">
+  <div class="form-group"><label>Unit or Building</label><input type="text" name="unit_or_building" required /></div>
+  <div class="form-group"><label>Name</label><input type="text" name="name" required /></div>
+  <div class="form-group"><label>Email</label><input type="text" name="email" required /></div>
+  <div class="form-group"><label>Phone</label><input type="text" name="phone" required /></div>
+  <div class="form-group"><label>Description of Issue</label><input type="text" name="description_of_issue" required /></div>
+  <div class="form-group"><label>Best time to access unit</label><input type="text" name="best_time_to_access_unit" required /></div>
+  <button type="submit" class="pill-btn">Submit</button>
+</form>
+{% endblock %}
