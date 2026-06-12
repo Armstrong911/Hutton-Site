@@ -3,33 +3,13 @@
 {% block content %}
 <h1>Contact Us</h1>
 <p>Reach our office in Victoria, BC. We respond to all inquiries within one business day.</p>
-
-<div class="card">
-  <p><strong>Hutton Property Management Ltd.</strong><br>
-  Victoria, British Columbia</p>
-  <p style="margin-top:16px;">
-    <a href="mailto:admin@huttonstrata.com" style="color:#1d1d1f;">admin@huttonstrata.com</a>
-  </p>
-</div>
-
+<div class="card"><p><strong>Hutton Property Management Ltd.</strong><br>Victoria, British Columbia</p><p style="margin-top:14px;"><a href="mailto:admin@huttonstrata.com" style="color:#1d1d1f;">admin@huttonstrata.com</a></p></div>
 <h2>Send a Message</h2>
-<form method="POST" action="/contact">
-  <div class="form-group">
-    <label>Your Name</label>
-    <input type="text" name="name" required />
-  </div>
-  <div class="form-group">
-    <label>Email Address</label>
-    <input type="email" name="email" required />
-  </div>
-  <div class="form-group">
-    <label>Building / Unit (if applicable)</label>
-    <input type="text" name="building" />
-  </div>
-  <div class="form-group">
-    <label>Message</label>
-    <textarea name="message" required></textarea>
-  </div>
+<form method="POST">
+  <div class="form-group"><label>Your Name</label><input type="text" name="name" required /></div>
+  <div class="form-group"><label>Email Address</label><input type="email" name="email" required /></div>
+  <div class="form-group"><label>Building / Unit (if applicable)</label><input type="text" name="building" /></div>
+  <div class="form-group"><label>Message</label><textarea name="message" required></textarea></div>
   <button type="submit" class="pill-btn">Send Message</button>
 </form>
 {% endblock %}

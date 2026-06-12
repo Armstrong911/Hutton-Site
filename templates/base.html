@@ -9,103 +9,36 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { background: #f5f5f7; color: #1d1d1f; font-family: 'PT Serif', Georgia, serif; -webkit-font-smoothing: antialiased; min-height: 100%; }
-    nav {
-      background: rgba(245,245,247,0.92);
-      border-bottom: 0.5px solid rgba(0,0,0,0.1);
-      height: 52px;
-      display: flex; align-items: center;
-      padding: 0 28px;
-      position: sticky; top: 0;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      z-index: 100;
-      justify-content: space-between;
-    }
-    nav a.brand {
-      font-size: 1rem; font-weight: 700;
-      color: #1d1d1f; text-decoration: none;
-      letter-spacing: .04em;
-    }
-    nav .nav-links { display: flex; gap: 24px; }
-    nav .nav-links a {
-      font-size: .85rem; color: #1d1d1f;
-      text-decoration: none; letter-spacing: .02em;
-      opacity: 0.75; transition: opacity 0.2s;
-    }
-    nav .nav-links a:hover { opacity: 1; }
-    .container { max-width: 860px; margin: 0 auto; padding: 56px 24px 80px; }
-    h1 { font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 700; margin-bottom: 12px; letter-spacing: -.01em; }
-    h2 { font-size: 1.3rem; font-weight: 700; margin: 36px 0 12px; }
-    p  { font-size: 1rem; line-height: 1.7; color: rgba(0,0,0,0.75); margin-bottom: 16px; }
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      border: 0.5px solid rgba(0,0,0,0.08);
-      padding: 32px;
-      margin-bottom: 16px;
-    }
-    .pill-btn {
-      display: inline-block;
-      background: #1d1d1f; color: #fff;
-      font-family: 'PT Serif', Georgia, serif;
-      font-size: .9rem; letter-spacing: .04em;
-      padding: 12px 32px;
-      border-radius: 980px;
-      border: none; cursor: pointer;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
+    .top-bar { padding: 20px 24px 0; }
+    .top-bar a { font-size: .85rem; color: rgba(0,0,0,0.38); text-decoration: none; letter-spacing: .03em; }
+    .top-bar a:hover { color: #1d1d1f; }
+    .container { max-width: 720px; margin: 0 auto; padding: 32px 24px 80px; }
+    h1 { font-size: clamp(1.6rem,5vw,2.4rem); font-weight: 700; margin-bottom: 12px; letter-spacing: -.01em; line-height: 1.2; }
+    h2 { font-size: clamp(1.05rem,3vw,1.25rem); font-weight: 700; margin: 28px 0 10px; }
+    p  { font-size: clamp(.93rem,2.5vw,1rem); line-height: 1.75; color: rgba(0,0,0,0.72); margin-bottom: 16px; }
+    .card { background: #fff; border-radius: 18px; border: 0.5px solid rgba(0,0,0,0.08); padding: 26px 22px; margin-bottom: 14px; }
+    .pill-btn { display: inline-block; background: #1d1d1f; color: #fff; font-family: 'PT Serif', Georgia, serif; font-size: .9rem; letter-spacing: .04em; padding: 14px 36px; border-radius: 980px; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.2s; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
     .pill-btn:hover { opacity: 0.82; }
-    .form-group { margin-bottom: 24px; }
-    .form-group label {
-      display: block; font-size: .8rem;
-      letter-spacing: .08em; text-transform: uppercase;
-      color: rgba(0,0,0,0.5); margin-bottom: 8px;
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%; background: none;
-      border: none; border-bottom: 1px solid rgba(0,0,0,0.2);
-      padding: 8px 0; font-family: 'PT Serif', Georgia, serif;
-      font-size: 1rem; color: #1d1d1f; outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus { border-bottom-color: #1d1d1f; }
-    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group { margin-bottom: 28px; }
+    .form-group label { display: block; font-size: .73rem; letter-spacing: .09em; text-transform: uppercase; color: rgba(0,0,0,0.42); margin-bottom: 10px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; background: none; border: none; border-bottom: 1px solid rgba(0,0,0,0.18); padding: 10px 0; font-family: 'PT Serif', Georgia, serif; font-size: 1rem; color: #1d1d1f; outline: none; transition: border-color 0.2s; -webkit-appearance: none; border-radius: 0; }
+    .form-group input:focus, .form-group textarea:focus { border-bottom-color: #1d1d1f; }
+    .form-group textarea { resize: vertical; min-height: 110px; }
     .accordion-item { border-bottom: 0.5px solid rgba(0,0,0,0.1); }
-    .accordion-btn {
-      width: 100%; background: none; border: none;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 0; cursor: pointer;
-      font-family: 'PT Serif', Georgia, serif;
-      font-size: 1rem; color: #1d1d1f; text-align: left;
-    }
-    .accordion-icon { font-size: 1.2rem; transition: transform 0.3s; }
-    .accordion-body { display: none; padding: 0 0 20px; color: rgba(0,0,0,0.7); line-height: 1.7; }
+    .accordion-btn { width: 100%; background: none; border: none; display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; font-family: 'PT Serif', Georgia, serif; font-size: clamp(.93rem,2.5vw,1rem); color: #1d1d1f; text-align: left; gap: 16px; -webkit-tap-highlight-color: transparent; }
+    .accordion-icon { font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s; }
+    .accordion-body { display: none; padding: 0 0 20px; color: rgba(0,0,0,0.7); line-height: 1.75; font-size: clamp(.88rem,2.5vw,.95rem); }
     .accordion-item.open .accordion-body { display: block; }
     .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+    @media (max-width: 480px) { .container { padding: 24px 18px 60px; } .card { padding: 20px 16px; } }
   </style>
 </head>
 <body>
-<nav>
-  <a class="brand" href="/">Hutton</a>
-  <div class="nav-links">
-    <a href="/services">Services</a>
-    <a href="/faq">FAQ</a>
-    <a href="/contact">Contact</a>
-  </div>
-</nav>
-<div class="container">
-  {% block content %}{% endblock %}
-</div>
+<div class="top-bar"><a href="/">← Hutton</a></div>
+<div class="container">{% block content %}{% endblock %}</div>
 <script>
   document.querySelectorAll('.accordion-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.closest('.accordion-item').classList.toggle('open');
-    });
+    btn.addEventListener('click', () => btn.closest('.accordion-item').classList.toggle('open'));
   });
 </script>
 </body>
